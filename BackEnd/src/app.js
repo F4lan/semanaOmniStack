@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');
+const { errors } = require('celebrate');
+
 
 const app = express();
 
@@ -8,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(routes);
-
+app.use(errors());
 /*
     Metodoss HTTP:
 
@@ -26,15 +28,15 @@ app.use(routes);
  * Request Body: Corpo da requisição, utilizado para criar ou alterar recursos
  */
 
- /**
-  * SQL: Mysql, SQlite, PostgreSQL, Oracle, Microsoft SQL Server
-  * NoSQL: MongoDB, CouchDB, etc
-  */
+/**
+ * SQL: Mysql, SQlite, PostgreSQL, Oracle, Microsoft SQL Server
+ * NoSQL: MongoDB, CouchDB, etc
+ */
 
-  /**
-   * Driver: SELECT * FROM users
-   * Query Builder: table('users').select('*').where()
-   */
+/**
+ * Driver: SELECT * FROM users
+ * Query Builder: table('users').select('*').where()
+ */
 
 
-app.listen(3333);
+module.exports = app;
